@@ -16,20 +16,13 @@ public class GameService {
     public String guess(CodeBreaker game, int guessNumber) {
 
         String resp = "";
-
-        String secret = String.valueOf(game.getSecret());
         String strGuessNumber = String.valueOf(guessNumber);
-
-        List<Character> secretsCharacterList = new ArrayList<>();
-        //List<Character> guessCharacterList = new ArrayList<>();
         List<Character> charactersFound = new ArrayList<>();
 
-        for (int x = 0; x < secret.length(); x++) {
-            secretsCharacterList.add(secret.charAt(x));
-        }
+        List<Character> secretsCharacterList = getCharactersFromInteger(game.getSecret());
 
         for (int x = 0; x < strGuessNumber.length(); x++) {
-            if(strGuessNumber.charAt(x) == secretsCharacterList.get(x)){
+            if (strGuessNumber.charAt(x) == secretsCharacterList.get(x)) {
                 charactersFound.add(strGuessNumber.charAt(x));
                 resp += "_";
             }
@@ -38,11 +31,20 @@ public class GameService {
         //Revisamos que el numero este en la lista
         for (int x = 0; x < strGuessNumber.length(); x++) {
             if (secretsCharacterList.contains(strGuessNumber.charAt(x))
-                    && !charactersFound.contains(strGuessNumber.charAt(x)))  {
+                    && !charactersFound.contains(strGuessNumber.charAt(x))) {
                 resp += "*";
             }
         }
 
         return resp;
+    }
+
+    private List<Character> getCharactersFromInteger(int number){
+        String strNumber = String.valueOf(number);
+        List<Character> characterList = new ArrayList<>();
+        for (int x = 0; x < strNumber.length(); x++) {
+            characterList.add(strNumber.charAt(x));
+        }
+        return characterList;
     }
 }
