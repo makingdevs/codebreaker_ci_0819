@@ -14,8 +14,15 @@ pipeline {
     }
   }
   post {
+    success {
+      echo "Finished CI with Success"
+    }
+    failure {
+      echo "Finished CI with Errors"
+    }
     always {
       echo "Finished CI"
+      cleanWs()
     }
   }
 }
