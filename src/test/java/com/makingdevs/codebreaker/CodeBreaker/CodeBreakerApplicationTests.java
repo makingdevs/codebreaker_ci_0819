@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 import com.makingdevs.codebreaker.model.CodeBreaker;
 import com.makingdevs.codebreaker.services.GameService;
@@ -39,5 +40,18 @@ public class CodeBreakerApplicationTests {
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 2107);
 		assertEquals("*", result);
+	}
+	@Test
+	public void testTry3(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 1538);
+		assertEquals("***", result);
+	}
+	@Test
+	@Ignore
+	public void testTry4(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 5341);
+		assertEquals("__**", result);
 	}
 }

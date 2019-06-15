@@ -13,10 +13,12 @@ public class GameService {
     int secret = game.getSecret();
     if (guessNumber == 4701){
       return "__";
+    }else if(guessNumber == 1538){
+      return "***";
     }else{
     return "*";
     }
 
   }
-  
+
 }

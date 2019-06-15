@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("Starting CI"){
       steps {
-        echo "Starting at ${new Date()} the CI($BRANCH_NAME)"
+        echo "Starting at ${new Date()} the CI"
       }
     }
     stage('Test unit application') {
