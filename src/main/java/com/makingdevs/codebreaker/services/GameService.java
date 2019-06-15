@@ -20,12 +20,14 @@ public class GameService {
     String rspon = "";
     for (int i=0; i<4; i++) {
       if (arraychartsecret[i] == arraychartguess[i]) {
+        arraychartguess[i] = ' ';
         rspon += "_";
-      }else{
-        for (char item:arraychartsecret) {
-          if (item == arraychartguess[i]){rspon+="*";}
-        }
+      }
+    }
 
+    for (char item:arraychartguess) {
+      for (char item2:arraychartsecret) {
+        if (item == item2){rspon+="*";}
       }
     }
     return rspon;
