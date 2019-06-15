@@ -10,15 +10,26 @@ public class GameService {
   }
 
   public String guess(CodeBreaker game, int guessNumber){
-    int secret = game.getSecret();
-    if (guessNumber == 4701){
-      return "__";
-    }else if(guessNumber == 1538){
-      return "***";
-    }else{
-    return "*";
-    }
 
+    String secret = String.valueOf(game.getSecret());
+    char[] arraychartsecret = secret.toCharArray();
+    
+    String guess = String.valueOf(game.getSecret());
+    char[] arraychartguess = guess.toCharArray();
+    String rsponguion = "";
+    String rsponast = "";
+    for (int i=0; i<arraychartsecret.length; i++) {
+      if (arraychartsecret[i] == arraychartguess[i]) {
+        rsponguion += "+";
+      }else{
+      for (char item:arraychartsecret) {
+        if(item == arraychartguess[i])
+          rsponast+="*";
+      }
+      }
+    }
+    String rs= rsponguion + rsponast;
+    return rs;
   }
 
 }
