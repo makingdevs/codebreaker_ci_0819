@@ -4,13 +4,18 @@ pipeline {
   stages {
     stage("Starting CI"){
       steps {
-        echo "Starting ${env.dump()}"
+        echo "Starting at ${new Date()} the CI"
       }
     }
     stage('Test unit application') {
       steps {
         sh "./gradlew clean build"
       }
+    }
+  }
+  post {
+    always {
+      echo "Finished CI"
     }
   }
 }
