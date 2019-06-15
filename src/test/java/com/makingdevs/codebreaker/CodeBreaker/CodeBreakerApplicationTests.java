@@ -71,7 +71,7 @@ public class CodeBreakerApplicationTests {
 	public void testTry7(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5314);
-		assertEquals("_***", result);
+		assertEquals("_****", result);
 	}
 
 	@Test
