@@ -28,4 +28,11 @@ public class CodeBreakerApplicationTests {
 		assert(game.getSecret() == 4351);
 	}
 
+	@Test
+	public void testTry1(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 4701);
+		assertEquals("__", result);
+	}
+
 }
