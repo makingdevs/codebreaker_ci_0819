@@ -21,26 +21,25 @@ public class GameService {
         String strGuessNumber = String.valueOf(guessNumber);
 
         List<Character> secretsCharacterList = new ArrayList<>();
-        List<Character> guessCharacterList = new ArrayList<>();
+        //List<Character> guessCharacterList = new ArrayList<>();
+        List<Character> charactersFound = new ArrayList<>();
 
         for (int x = 0; x < secret.length(); x++) {
             secretsCharacterList.add(secret.charAt(x));
         }
 
-        //
         for (int x = 0; x < strGuessNumber.length(); x++) {
-            for (Character c : secretsCharacterList) {
-                if (strGuessNumber.charAt(x) == c) {
-                    resp += "_";
-                }
+            if(strGuessNumber.charAt(x) == secretsCharacterList.get(x)){
+                charactersFound.add(strGuessNumber.charAt(x));
+                resp += "_";
             }
         }
 
+        //Revisamos que el numero este en la lista
         for (int x = 0; x < strGuessNumber.length(); x++) {
-            for (Character c : secretsCharacterList) {
-                if (strGuessNumber.charAt(x) == c) {
-                    resp += "_";
-                }
+            if (secretsCharacterList.contains(strGuessNumber.charAt(x))
+                    && !charactersFound.contains(strGuessNumber.charAt(x)))  {
+                resp += "*";
             }
         }
 
