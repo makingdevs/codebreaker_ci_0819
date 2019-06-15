@@ -29,7 +29,7 @@ public class CodeBreakerApplicationTests {
 		assert(game.getSecret() == 4351);
 	}
 
-	@Test
+	/*@Test
 	public void testTry1(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 4701);
@@ -48,13 +48,12 @@ public class CodeBreakerApplicationTests {
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 1538);
 		assertEquals("***", result);
-	}
+	}*/
 
 	@Test
 	public void testTry4(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5341);
-		System.out.println("****************************\n"+result);
 		assertEquals("__**", result);
 	}
 

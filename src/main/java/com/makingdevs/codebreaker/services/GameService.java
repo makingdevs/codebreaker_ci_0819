@@ -15,12 +15,20 @@ public class GameService {
     String output = "";
     int[] number = convertToArray(guessNumber);
     int[] secretArray = convertToArray(secret);
+    System.out.println("**********");
+    System.out.println("number: "+Arrays.toString(number));
+    System.out.println("secretArray: "+Arrays.toString(secretArray));
     for(int i = 0; i < number.length; i++){
     	String str = "";
-    	boolean contains = Arrays.asList(secretArray).contains(number[i]);
+    	boolean contains = contains(secretArray, number[i]);
+    	System.out.println(contains);
+    	System.out.println("number["+i+"]: "+number[i]+", secretArray: ["+i+"]: "+secretArray[i]);    	
     	if(contains) str = "*";
-		if(number[i]==secretArray[i]) str = "_";
+		if(contains && number[i]==secretArray[i]) str = "_";
 		output += str;
+		System.out.print("str: "+str);
+		System.out.println(", output: "+output);
+		System.out.println("\n\n");
     }
     return output;
   }
@@ -32,5 +40,16 @@ public class GameService {
 	    array[i] = temp.charAt(i) - '0';
   	return array;
   }
+
+  public static boolean contains(final int[] array, final int v) {
+        boolean result = false;
+        for(int i : array){
+            if(i == v){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
 
 }
