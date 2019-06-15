@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("Starting CI"){
       steps {
-        echo "Starting Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER}"
+        echo "Starting Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} in ${env.BRANCH_NAME}"
       }
     }
     stage('Test unit application') {
@@ -17,7 +17,7 @@ pipeline {
   post {
     success {
       echo "Finished CI with Success"
-      slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+      slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful(${currentBuild.duration} secs.)"
     }
     failure {
       echo "Finished CI with Errors"
