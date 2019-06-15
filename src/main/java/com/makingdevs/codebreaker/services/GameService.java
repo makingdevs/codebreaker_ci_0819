@@ -14,22 +14,21 @@ public class GameService {
     String secret = String.valueOf(game.getSecret());
     char[] arraychartsecret = secret.toCharArray();
     
-    String guess = String.valueOf(game.getSecret());
+    String guess = String.valueOf(guessNumber);
     char[] arraychartguess = guess.toCharArray();
     String rsponguion = "";
-    String rsponast = "";
-    for (int i=0; i<arraychartsecret.length; i++) {
+    String rspon = "";
+    for (int i=0; i<4; i++) {
       if (arraychartsecret[i] == arraychartguess[i]) {
-        rsponguion += "+";
+        rspon += "_";
       }else{
-      for (char item:arraychartsecret) {
-        if(item == arraychartguess[i])
-          rsponast+="*";
-      }
+        for (char item:arraychartsecret) {
+          if (item == arraychartguess[i]){rspon+="*";}
+        }
+
       }
     }
-    String rs= rsponguion + rsponast;
-    return rs;
+    return rspon;
   }
 
 }

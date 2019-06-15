@@ -33,7 +33,8 @@ public class CodeBreakerApplicationTests {
 	public void testTry1(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 4701);
-		assertEquals("++", result);
+		System.out.println(result);
+		assertEquals("__", result);
 	}
 	@Test
 	public void testTry2(){
@@ -52,6 +53,6 @@ public class CodeBreakerApplicationTests {
 	public void testTry4(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5341);
-		assertEquals("++**", result);
+		assertEquals("__**", result);
 	}
 }
