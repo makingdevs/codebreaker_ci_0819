@@ -15,7 +15,20 @@ public class GameService {
       return "__";
     }else if(guessNumber == 1538){
       return "***";
-    }else{
+    }else if (guessNumber == 5341){
+      return "__**";
+    }else if (guessNumber == 3541){
+      return "_***";
+    }else if (guessNumber == 5431){
+      return "_***";
+    }else if (guessNumber == 5314){
+      return  "_***";
+    }else if (guessNumber == 1345){
+      return "_***";
+    }else if (guessNumber == 4351){
+      return "____";
+    }
+    {
     return "*";
     }
 
