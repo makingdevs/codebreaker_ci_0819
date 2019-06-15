@@ -35,23 +35,61 @@ public class CodeBreakerApplicationTests {
 		String result = gameService.guess(game, 4701);
 		assertEquals("__", result);
 	}
+
 	@Test
 	public void testTry2(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 2107);
 		assertEquals("*", result);
 	}
+
 	@Test
 	public void testTry3(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 1538);
 		assertEquals("***", result);
 	}
+
 	@Test
-	@Ignore
 	public void testTry4(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5341);
+		System.out.println("****************************\n"+result);
 		assertEquals("__**", result);
 	}
+
+	/*@Test
+	public void testTry5(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 3541);
+		assertEquals("_***", result);
+	}
+
+	@Test
+	public void testTry6(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 5431);
+		assertEquals("_***", result);
+	}
+
+	@Test
+	public void testTry7(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 5314);
+		assertEquals("_***", result);
+	}
+
+	@Test
+	public void testTry8(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 1345);
+		assertEquals("_***", result);
+	}
+
+	@Test
+	public void testTry9(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 4351);
+		assertEquals("____", result);
+	}*/
 }
