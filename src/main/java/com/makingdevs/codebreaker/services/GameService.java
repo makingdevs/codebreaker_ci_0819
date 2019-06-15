@@ -24,6 +24,8 @@ public class GameService {
 
   public String calculateGuess(int numberSecret, int number) {
 
+    String resultAste = "";
+    String resulGuion = "";
     String result = "";
     String sNumber = String.valueOf(number);
     String sSecret = String.valueOf(numberSecret);
@@ -31,11 +33,12 @@ public class GameService {
     int positionS = 0;
 
     for (char n : sNumber.toCharArray()) {
+      positionS = 0;
         for (char s : sSecret.toCharArray()) {
           if(n == s && position == positionS) {
-            result += "_";
+            resulGuion += "_";
           } else if (n == s && position != positionS) {
-            result += "*";
+            resultAste += "*";
           } else {
             result += "";
           }
@@ -44,7 +47,7 @@ public class GameService {
         position ++;
     }
 
-    return result;
+    return resulGuion + resultAste + result;
   }
 
 }
