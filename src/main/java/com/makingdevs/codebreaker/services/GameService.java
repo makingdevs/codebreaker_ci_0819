@@ -24,26 +24,24 @@ public class GameService {
 
   public String calculateGuess(int numberSecret, int number) {
 
-    String resultAste = "", resulGuion = "";
+    String positionEquals = "", differentPosition = "";
     String sNumber = String.valueOf(number);
     String sSecret = String.valueOf(numberSecret);
-    int position = 0;
-    int positionS = 0;
+    int positionNumber = 0, positionSecret = 0;
 
     for (char n : sNumber.toCharArray()) {
-      positionS = 0;
+      positionSecret = 0;
         for (char s : sSecret.toCharArray()) {
-          if(n == s && position == positionS) {
-            resulGuion += "_";
-          } else if (n == s) {
-            resultAste += "*";
-          }
-          positionS ++;
+          if(n == s && positionNumber == positionSecret)
+            positionEquals += "_";
+          else if (n == s)
+            differentPosition += "*";
+          positionSecret ++;
         }
-        position ++;
+        positionNumber ++;
     }
 
-    return resulGuion + resultAste;
+    return positionEquals + differentPosition;
   }
 
 }
