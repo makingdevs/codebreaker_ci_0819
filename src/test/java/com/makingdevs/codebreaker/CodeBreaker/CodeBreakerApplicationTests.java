@@ -18,6 +18,7 @@ import com.makingdevs.codebreaker.services.GameService;
 public class CodeBreakerApplicationTests {
 
 	GameService gameService = new GameService();
+	CodeBreaker game = gameService.initGameWith(4351);
 
 	@Test
 	public void contextLoads() {
@@ -25,33 +26,43 @@ public class CodeBreakerApplicationTests {
 
 	@Test
 	public void testInitializeGame(){
-		CodeBreaker game = gameService.initGameWith(4351);
 		assert(game.getSecret() == 4351);
 	}
 
 	@Test
 	public void testTry1(){
-		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 4701);
 		assertEquals("__", result);
 	}
 	@Test
 	public void testTry2(){
-		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 2107);
 		assertEquals("*", result);
 	}
 	@Test
 	public void testTry3(){
-		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 1538);
 		assertEquals("***", result);
 	}
 	@Test
 	@Ignore
 	public void testTry4(){
-		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5341);
 		assertEquals("__**", result);
+	}
+
+	@Test
+	public void testGuessNumberIsSecret() {
+		String result = gameService.guess(game, 4351);
+		assertEquals("____", result);
+	}
+
+	@Test
+	public void testIfDigitIsInSecret() {
+		String secret = game.getSecret().toString();
+		String resultYes= gameService.digitIsInSecret("4", secret);
+		String resultNo = gameService.digitIsInSecret("8", secret);
+		assertEquals("*", resultYes);
+		assertEquals("", resultNo);
 	}
 }
