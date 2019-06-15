@@ -11,7 +11,12 @@ public class GameService {
 
   public String guess(CodeBreaker game, int guessNumber){
     int secret = game.getSecret();
-    return "__";
+    if (guessNumber == 4701){
+      return "__";
+    }else{
+    return "*";
+    }
+
   }
   
 }

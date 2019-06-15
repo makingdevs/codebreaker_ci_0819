@@ -34,5 +34,10 @@ public class CodeBreakerApplicationTests {
 		String result = gameService.guess(game, 4701);
 		assertEquals("__", result);
 	}
-
+	@Test
+	public void testTry2(){
+		CodeBreaker game = gameService.initGameWith(4351);
+		String result = gameService.guess(game, 2107);
+		assertEquals("*", result);
+	}
 }
