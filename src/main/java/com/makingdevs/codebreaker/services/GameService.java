@@ -27,6 +27,15 @@ public class GameService {
             secretsCharacterList.add(secret.charAt(x));
         }
 
+        //
+        for (int x = 0; x < strGuessNumber.length(); x++) {
+            for (Character c : secretsCharacterList) {
+                if (strGuessNumber.charAt(x) == c) {
+                    resp += "_";
+                }
+            }
+        }
+
         for (int x = 0; x < strGuessNumber.length(); x++) {
             for (Character c : secretsCharacterList) {
                 if (strGuessNumber.charAt(x) == c) {
