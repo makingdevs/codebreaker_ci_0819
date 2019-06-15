@@ -17,7 +17,7 @@ pipeline {
   post {
     success {
       echo "Finished CI with Success"
-      slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful(${currentBuild.duration} secs.)"
+      slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful(${currentBuild.durationString} and build vars ${currentBuild.buildVariables})"
     }
     failure {
       echo "Finished CI with Errors"
