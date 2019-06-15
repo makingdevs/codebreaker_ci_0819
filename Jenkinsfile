@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("Starting CI"){
       steps {
-        echo "Starting at ${new Date()} the CI"
+        echo "Starting Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER}"
       }
     }
     stage('Test unit application') {
