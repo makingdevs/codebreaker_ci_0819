@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("Starting CI"){
       steps {
-        echo "Starting ${env.properties}"
+        echo "Starting ${env.dump()}"
       }
     }
     stage('Test unit application') {
