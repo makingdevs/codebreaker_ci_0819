@@ -15,21 +15,22 @@ public class GameService {
     String output = "";
     int[] number = convertToArray(guessNumber);
     int[] secretArray = convertToArray(secret);
-    System.out.println("**********");
-    System.out.println("number: "+Arrays.toString(number));
-    System.out.println("secretArray: "+Arrays.toString(secretArray));
+
+        	int strContains = 0;
+        	int strMatch = 0;
+
     for(int i = 0; i < number.length; i++){
-    	String str = "";
     	boolean contains = contains(secretArray, number[i]);
-    	System.out.println(contains);
-    	System.out.println("number["+i+"]: "+number[i]+", secretArray: ["+i+"]: "+secretArray[i]);    	
-    	if(contains) str = "*";
-		if(contains && number[i]==secretArray[i]) str = "_";
-		output += str;
-		System.out.print("str: "+str);
-		System.out.println(", output: "+output);
-		System.out.println("\n\n");
+    	if(contains) strContains++;
+		if(contains && number[i]==secretArray[i]) strMatch ++;
     }
+    for(int i = 0; i < strMatch; i++)
+    	output += "_";
+    for(int i = 0; i <strContains; i++)
+    	output += "*";
+
+    System.out.println("*****************");
+    System.out.println(output);
     return output;
   }
 
