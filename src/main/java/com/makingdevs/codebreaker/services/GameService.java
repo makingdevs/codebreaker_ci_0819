@@ -1,6 +1,7 @@
 package com.makingdevs.codebreaker.services;
 
 import org.springframework.stereotype.Service;
+
 import com.makingdevs.codebreaker.model.CodeBreaker;
 
 @Service
@@ -11,15 +12,14 @@ public class GameService {
   }
 
   public String guess(CodeBreaker game, int guessNumber){
-    int secret = game.getSecret();
-    if (guessNumber == 4701){
-      return "__";
-    }else if(guessNumber == 1538){
-      return "***";
-    }else{
-    return "*";
+    String[] guessedNumbers = ("" + guessNumber + "").split("");
+    StringBuffer result = new StringBuffer();
+    for(int i = 0; i < guessedNumbers.length; i++){
+      if(guessedNumbers[i].equals(game.getNumbersInList()[i])) {
+        result.append("_");
+      } 
     }
-
+    return result.toString();
   }
 
 }
