@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 import static org.junit.Assert.*;
 import org.junit.Ignore;
@@ -15,10 +14,11 @@ import com.makingdevs.codebreaker.services.GameService;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class CodeBreakerApplicationTests {
 
-	GameService gameService = new GameService();
+	@Autowired
+	private GameService gameService;
 
 	@Test
 	public void contextLoads() {
