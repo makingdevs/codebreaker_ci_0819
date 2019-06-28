@@ -49,7 +49,6 @@ public class CodeBreakerApplicationTests {
 		assertEquals("***", result);
 	}
 	@Test
-	@Ignore
 	public void testTry4(){
 		CodeBreaker game = gameService.initGameWith(4351);
 		String result = gameService.guess(game, 5341);

@@ -3,6 +3,8 @@ package com.makingdevs.codebreaker.services;
 import org.springframework.stereotype.Service;
 
 import com.makingdevs.codebreaker.model.CodeBreaker;
+import java.util.List;
+import java.util.Arrays;
 
 @Service
 public class GameService {
@@ -13,13 +15,20 @@ public class GameService {
 
   public String guess(CodeBreaker game, int guessNumber){
     String[] guessedNumbers = ("" + guessNumber + "").split("");
-    StringBuffer result = new StringBuffer();
+    StringBuffer resultPositionAndNumber = new StringBuffer();
+    StringBuffer resultOnlyNumber = new StringBuffer();
     for(int i = 0; i < guessedNumbers.length; i++){
       if(guessedNumbers[i].equals(game.getNumbersInList()[i])) {
-        result.append("_");
-      } 
+        resultPositionAndNumber.append("_");
+      } else {
+        List<String> numberList = Arrays.asList(game.getNumbersInList());
+        if(numberList.contains(guessedNumbers[i])){
+          resultOnlyNumber.append("*");
+        }
+      }
     }
-    return result.toString();
+
+    return resultPositionAndNumber.toString() + resultOnlyNumber.toString();
   }
 
 }
