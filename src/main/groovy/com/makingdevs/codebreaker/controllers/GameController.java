@@ -19,7 +19,7 @@ public class GameController {
     @RequestMapping("/{number}")
     ModelAndView index(@PathVariable("number") Integer number){
         ModelAndView modelAndView = new ModelAndView("index");
-        CodeBreaker game = gameService.initGameWith(number);
+        CodeBreaker game = gameService.initGameWith(4351);
         String result = gameService.guess(game, number);
         Map model = new HashMap();
         modelAndView.addObject("results", number + " - " + result);

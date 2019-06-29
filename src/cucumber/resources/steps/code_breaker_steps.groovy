@@ -12,10 +12,10 @@ Given(~/^a mistery number (\d+)$/) { int number ->
 }
 
 When(~/^we start the game$/) { ->
-    $("input#guess") << "8732"
+    $("input#guess") << "4567"
     $("button").click()
 }
 
 Then(~/^the game must be initialized$/) { ->
-    assert $("li")[0].text() == "8732 - *"
+    assert $("li")[0].text() == "4732 - _*"
 }
