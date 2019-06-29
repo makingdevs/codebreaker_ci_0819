@@ -17,8 +17,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.cucumber:cucumber-java:4.3.1'
 	testCompile 'junit:junit:4.12'
+
+	testImplementation 'io.cucumber:cucumber-java:4.3.1'
+	testCompile group: 'org.gebish', name: 'geb-junit4', version: '3.0.1'
 }
 
 configurations {
