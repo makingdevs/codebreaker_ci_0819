@@ -14,7 +14,9 @@
       <input type="text" name="guess" id="guess"/>
       <button type="submit">Guess!</button>
     </form>
-    <ul></ul>
+    <ul li:each="result: ${results}">
+      <li:text="${result}"></li>
+    </ul>
     <!--p th:text="#{home.welcome}">Welcome to our grocery store!</p-->
   
   </body>
