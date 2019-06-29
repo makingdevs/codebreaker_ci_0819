@@ -14,10 +14,11 @@ import com.makingdevs.codebreaker.services.GameService;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class CodeBreakerApplicationTests {
 
-	GameService gameService = new GameService();
+	@Autowired
+	private GameService gameService;
 
 	@Test
 	public void contextLoads() {
@@ -91,3 +92,4 @@ public class CodeBreakerApplicationTests {
 
 
 }
+
