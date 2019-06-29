@@ -9,7 +9,14 @@
 
   <body>
   
-    <h1>Hola inmundo!!!</h1>
+    <h1>Welcome to Codebreaker</h1>
+    <form>
+      <input type="text" name="guess" id="guess"/>
+      <button type="submit">Guess!</button>
+    </form>
+    <ul li:each="result: ${results}">
+      <li:text="${result}"></li>
+    </ul>
     <!--p th:text="#{home.welcome}">Welcome to our grocery store!</p-->
   
   </body>
