@@ -26,19 +26,12 @@ repositories {
 	mavenCentral()
 }
 
-<<<<<<< HEAD
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
-=======
 ext {
 	gebVersion = '3.0.1'
 	seleniumVersion = '3.14.0'
 	cucumberJvmVersion = '1.2.5'
 	chromeDriverVersion = '73.0.3683.68'
 	geckoDriverVersion = '0.24.0'
->>>>>>> neodevelop
 }
 
 dependencies {
@@ -46,12 +39,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-<<<<<<< HEAD
-	testCompile 'junit:junit:4.12'
-	testImplementation 'io.cucumber:cucumber-java:4.3.1'
-    compile group: 'org.gebish', name: 'geb-junit4', version: '3.0.1'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
-=======
 	testCompile 'org.junit.jupiter:junit-jupiter:5.4.0'
 	testCompile "org.gebish:geb-core:$gebVersion"
 	testCompile "org.seleniumhq.selenium:selenium-api:$seleniumVersion"
@@ -106,16 +93,15 @@ tasks.cucumber {
 
 tasks.withType(GroovyCompile) {
 	groovyOptions.forkOptions.memoryMaximumSize = '256m'
->>>>>>> neodevelop
 }
 
-task cucumber() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        javaexec {
-            main = "cucumber.api.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
-        }
-    }
-}
+// task cucumber() {
+//     dependsOn assemble, compileTestJava
+//     doLast {
+//         javaexec {
+//             main = "cucumber.api.cli.Main"
+//             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+//             args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+//         }
+//     }
+// }
