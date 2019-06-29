@@ -45,10 +45,24 @@ public class CodeBreakerApplicationTests {
 		assertEquals("***", result);
 	}
 	@Test
-	@Ignore
 	public void testTry4(){
 		String result = gameService.guess(game, 5341);
 		assertEquals("__**", result);
+	}
+	@Test
+	public void testTry5(){
+		String result = gameService.guess(game, 2345);
+		assertEquals("_**", result);
+	}
+
+	@Test
+	public void testGetDigitList() {
+		int guess = 4351;
+		String[] result = gameService.getDigitList(guess);
+		assertEquals("4", result[0]);
+		assertEquals("3", result[1]);
+		assertEquals("5", result[2]);
+		assertEquals("1", result[3]);
 	}
 
 	@Test
@@ -59,9 +73,8 @@ public class CodeBreakerApplicationTests {
 
 	@Test
 	public void testIfDigitIsInSecret() {
-		String secret = game.getSecret().toString();
-		String resultYes= gameService.digitIsInSecret("4", secret);
-		String resultNo = gameService.digitIsInSecret("8", secret);
+		String resultYes= gameService.digitIsInSecret("4", game.getSecret());
+		String resultNo = gameService.digitIsInSecret("8", game.getSecret());
 		assertEquals("*", resultYes);
 		assertEquals("", resultNo);
 	}
