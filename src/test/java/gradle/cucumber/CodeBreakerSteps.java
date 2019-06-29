@@ -3,16 +3,22 @@ package gradle.cucumber;
 import com.makingdevs.codebreaker.model.CodeBreaker;
 import com.makingdevs.codebreaker.services.GameService;
 
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.GebTest;
 import cucumber.api.java.en.*; // paquete en ingles tambien existe en spañol
 
-public class CodeBreakerSteps {
+// @RunWith(SpringRunner.class)
+// @SpringBootTest
+public class CodeBreakerSteps extends GebTest {
 
     private GameService service  = new GameService();
 
     @Given("a mistery number {int}")
     public void a_mistery_number(Integer int1) {
-        CodeBreaker game = service.initGameWith(int1);
-        assert(game.getSecret() == 4351);
+        browser.go("/");
     }
 
     @When("we start gamethen")
