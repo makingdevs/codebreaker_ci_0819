@@ -4,6 +4,6 @@ Feature: Plays the CodeBreaker
     so that can be challenged myself
 
 Scenario: Start the game
-    Given a mistery number 4567
+    Given a mistery number 4351
     When we start the game
-    Then the game must be initialized
+    Then plays with 1534
