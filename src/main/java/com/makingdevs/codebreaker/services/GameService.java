@@ -21,36 +21,31 @@ public class GameService {
 
     for(int i = 0; i < number.length; i++){
     	boolean contains = contains(secretArray, number[i]);
-    	if(contains) strContains++;
-		if(contains && number[i]==secretArray[i]) strMatch ++;
+    	if(contains && number[i]!=secretArray[i]) strContains++;
+		  if(contains && number[i]==secretArray[i]) strMatch ++;
     }
-    for(int i = 0; i < strMatch; i++)
-    	output += "_";
-    for(int i = 0; i <strContains; i++)
-    	output += "*";
-
-    System.out.println("*****************");
-    System.out.println(output);
+    for(int i = 0; i < strMatch; i++) output += "_";
+    for(int i = 0; i <strContains; i++)	output += "*";
     return output;
   }
 
   private int[] convertToArray(int number){
   	String temp = Integer.toString(number);
-	int[] array = new int[temp.length()];
-	for (int i = 0; i < temp.length(); i++)
-	    array[i] = temp.charAt(i) - '0';
-  	return array;
+    int[] array = new int[temp.length()];
+    for (int i = 0; i < temp.length(); i++)
+        array[i] = temp.charAt(i) - '0';
+    return array;
   }
 
   public static boolean contains(final int[] array, final int v) {
-        boolean result = false;
-        for(int i : array){
-            if(i == v){
-                result = true;
-                break;
-            }
-        }
-        return result;
+    boolean result = false;
+    for(int i : array){
+      if(i == v){
+        result = true;
+        break;
+      }
     }
+    return result;
+  }
 
 }
