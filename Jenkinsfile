@@ -12,6 +12,16 @@ pipeline {
         sh "./gradlew clean build"
       }
     }
+    stage('Run the app') {
+      steps {
+        sh "./gradlew clean bootRun >> ./log.txt &"
+      }
+    }
+    stage('Test functional application') {
+      steps {
+        sh "./gradlew clean cucumber"
+      }
+    }
   }
   post {
     always {
